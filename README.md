@@ -14,7 +14,7 @@ The Employee Onboarding Application is a React-based web application designed to
 
 ## Technologies Used
 
-- **Frontend**: React.js, Vite, Tailwind CSS, React Quill (for rich text editing), Chart.js (for charts), React PDF (for PDF generation).
+- **Frontend**: React.jsx, Tailwind CSS, React Quill (for rich text editing), Chart.js (for charts), React PDF (for PDF generation).
 - **Development Tools**: Node.js, npm, and Vite for bootstrapping the project.
 
 ## Installation
@@ -45,6 +45,9 @@ The Employee Onboarding Application is a React-based web application designed to
 
 5. Open your web browser and navigate to `http://localhost:5173` to view the application.
 
+## Live Preview
+
+You can view a live preview of the application at the following URL: [Live Preview](https://onboard-hub.vercel.app/)
 
 ## Author
 

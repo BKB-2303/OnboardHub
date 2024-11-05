@@ -3,6 +3,7 @@
 import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
 import React from 'react';
 
+// Define styles for the PDF document
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
@@ -12,11 +13,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 5,
     fontWeight: 'bold',
-  },
-  subtitle: {
-    fontSize: 12,
-    color: 'gray',
-    marginBottom: 10,
   },
   section: {
     marginBottom: 10,
@@ -39,14 +35,22 @@ const styles = StyleSheet.create({
   },
 });
 
+// Function to sanitize HTML content by removing tags
+const sanitizeHTML = (htmlString) => {
+  const div = document.createElement('div');
+  div.innerHTML = htmlString;
+  return div.textContent || div.innerText || '';
+};
+
 const PDFDocument = ({ content, employees, progress }) => {
+  const sanitizedContent = sanitizeHTML(content); // Sanitize content
+
   return (
     <Document>
       <Page style={styles.page}>
         <View style={styles.section}>
-          <Text style={styles.title}>Onboarding Document Report</Text>
-         
-          <Text>{content}</Text>
+          <Text style={styles.title}>Onboarding Document</Text>
+          <Text>{sanitizedContent}</Text>
         </View>
 
         <View style={styles.section}>
