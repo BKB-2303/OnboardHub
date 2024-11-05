@@ -1,4 +1,3 @@
-// src/components/Onboarding.jsx
 
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import React, { useEffect, useState } from 'react';
@@ -12,7 +11,7 @@ const Onboarding = () => {
   const [content, setContent] = useState('');
   const [employees, setEmployees] = useState([]);
 
-  // Data structure for the progress chart
+
   const [progressData, setProgressData] = useState({
     labels: [],
     datasets: [
@@ -27,7 +26,7 @@ const Onboarding = () => {
   });
 
   useEffect(() => {
-    // Calculate progress for the chart
+    // Calculate progress 
     const updatedLabels = [];
     const updatedData = [];
 

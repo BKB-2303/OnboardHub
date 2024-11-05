@@ -14,8 +14,20 @@ The Employee Onboarding Application is a React-based web application designed to
 
 ## Technologies Used
 
-- **Frontend**: React.jsx, Tailwind CSS, React Quill (for rich text editing), Chart.js (for charts), React PDF (for PDF generation).
-- **Development Tools**: Node.js, npm, and Vite for bootstrapping the project.
+### Frontend:
+
+- **React.jsx**: A JavaScript library for building user interfaces, allowing for the development of dynamic and responsive applications.
+- **Tailwind CSS**: A utility-first CSS framework that enables fast and customizable styling of the application.
+- **React Quill**: A rich text editor that simplifies the process of creating and formatting onboarding documents, making it easy for users to input styled text.
+- **Chart.js**: A JavaScript library that allows for the creation of interactive and responsive charts. It is used in this application to visualize onboarding progress effectively.
+- **React PDF**: A library that facilitates the generation of downloadable PDF documents from React components, enabling users to save reports easily.
+
+### Development Tools:
+
+- **Node.js**: A JavaScript runtime that allows for building scalable server-side applications.
+- **npm**: A package manager for JavaScript that is used to manage the application's dependencies.
+- **Vite**: A modern build tool that provides a fast and efficient development environment for React applications.
+
 
 ## Installation
 

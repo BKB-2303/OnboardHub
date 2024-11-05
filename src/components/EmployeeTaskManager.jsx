@@ -1,32 +1,30 @@
-// src/components/EmployeeTaskManager.jsx
-
 import React, { useState } from 'react';
 
 const EmployeeTaskManager = ({ employees, setEmployees }) => {
   const [employeeName, setEmployeeName] = useState('');
-  const [taskText, setTaskText] = useState('');
-  const [selectedEmployeeIndex, setSelectedEmployeeIndex] = useState(null);
+  const [taskTexts, setTaskTexts] = useState({}); 
 
   const handleAddEmployee = () => {
     if (employeeName) {
       setEmployees([...employees, { name: employeeName, tasks: [] }]);
       setEmployeeName('');
+      setTaskTexts({ ...taskTexts, [employees.length]: '' }); 
     }
   };
 
-  const handleAddTask = () => {
-    if (taskText && selectedEmployeeIndex !== null) {
+  const handleAddTask = (index) => {
+    if (taskTexts[index]) {
       const updatedEmployees = [...employees];
-      updatedEmployees[selectedEmployeeIndex].tasks.push({ text: taskText, completed: false });
+      updatedEmployees[index].tasks.push({ text: taskTexts[index], completed: false });
       setEmployees(updatedEmployees);
-      setTaskText('');
+      setTaskTexts({ ...taskTexts, [index]: '' }); 
     }
   };
 
   return (
     <div className="p-6 bg-gray-100 rounded-lg shadow-md">
       <h2 className="text-xl font-semibold mb-4 text-gray-800">Employee Task Manager</h2>
-      
+
       <div className="mb-4 flex items-center">
         <input
           type="text"
@@ -44,7 +42,7 @@ const EmployeeTaskManager = ({ employees, setEmployees }) => {
       </div>
 
       <h3 className="font-semibold text-lg text-gray-700 mb-2">Employee List</h3>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {employees.map((employee, index) => (
           <div key={index} className="mb-4 p-4 bg-white rounded-lg shadow-md">
@@ -53,15 +51,12 @@ const EmployeeTaskManager = ({ employees, setEmployees }) => {
               <input
                 type="text"
                 placeholder="New Task"
-                value={taskText}
-                onChange={(e) => setTaskText(e.target.value)}
+                value={taskTexts[index] || ''}
+                onChange={(e) => setTaskTexts({ ...taskTexts, [index]: e.target.value })}
                 className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-950 flex-grow"
               />
               <button 
-                onClick={() => {
-                  handleAddTask();
-                  setSelectedEmployeeIndex(index);
-                }} 
+                onClick={() => handleAddTask(index)} 
                 className="ml-2 bg-stone-950 text-white px-4 py-2 rounded-lg hover:bg-stone-800 transition duration-200"
               >
                 Add Task
@@ -91,4 +86,4 @@ const EmployeeTaskManager = ({ employees, setEmployees }) => {
   );
 };
 
-export default EmployeeTaskManager;
+export default EmployeeTaskManager

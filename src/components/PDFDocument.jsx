@@ -1,9 +1,9 @@
-// src/components/PDFDocument.js
+
 
 import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
 import React from 'react';
 
-// Define styles for the PDF document
+
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// Function to sanitize HTML content by removing tags
+
 const sanitizeHTML = (htmlString) => {
   const div = document.createElement('div');
   div.innerHTML = htmlString;
@@ -43,7 +43,7 @@ const sanitizeHTML = (htmlString) => {
 };
 
 const PDFDocument = ({ content, employees, progress }) => {
-  const sanitizedContent = sanitizeHTML(content); // Sanitize content
+  const sanitizedContent = sanitizeHTML(content); 
 
   return (
     <Document>
